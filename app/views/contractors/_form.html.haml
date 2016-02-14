@@ -1,0 +1,20 @@
+= form_for (contractor) do |f|
+  - if contractor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(contractor.errors.count, "error")} prohibited this contractor from being saved:"
+      %ul
+        - contractor.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :address
+    = f.text_field :address, class: 'form-control'
+  .form-group
+    = f.label :nip
+    = f.text_field :nip, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-default'
+  = link_to 'Back', contractors_path, class:  'btn btn-default'

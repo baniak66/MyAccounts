@@ -1,0 +1,8 @@
+%h1 Contractors List
+
+-contractors.each do |contractor|
+  %h3= contractor.name
+  %p= contractor.address
+  %p= contractor.nip
+
+=link_to "Add contractor", new_contractor_path, class: 'btn btn-default'
