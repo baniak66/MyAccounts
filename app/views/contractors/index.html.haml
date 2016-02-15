@@ -1,8 +1,17 @@
-%h1 Contractors List
-
--contractors.each do |contractor|
-  %h3= contractor.name
-  %p= contractor.address
-  %p= contractor.nip
+%h3 Contractors List
+%table.table
+  %tr
+    %th Name
+    %th Address
+    %th NIP
+    %th
+  -contractors.each do |contractor|
+    %tr
+      %td= contractor.name
+      %td= contractor.address
+      %td= contractor.nip
+      %td
+        = link_to "Show", contractor, class: "btn btn-sm btn-default"
+        = link_to "Edit", edit_contractor_path(contractor), class: "btn btn-sm btn-default"
 
 =link_to "Add contractor", new_contractor_path, class: 'btn btn-default'

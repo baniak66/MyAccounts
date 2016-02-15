@@ -6,6 +6,9 @@ class ContractorsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
   end
 
@@ -14,6 +17,14 @@ class ContractorsController < ApplicationController
       redirect_to contractors_path, notice: 'Contractor was successfully created.'
     else
       render action: 'new'
+    end
+  end
+
+  def update
+    if contractor.update(contractor_params)
+      redirect_to contractors_path, notice: 'Contractor was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
