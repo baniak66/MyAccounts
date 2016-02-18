@@ -1,0 +1,38 @@
+%br
+= form_for (contractor) do |f|
+  - if contractor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(contractor.errors.count, "error")} prohibited this contractor from being saved:"
+      %ul
+        - contractor.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .col-md-6
+      = f.fields_for :evidences, Evidence.new do |ff|
+        .form-group
+          = ff.label "Number:"
+          = ff.text_field :number, class: 'form-control'
+        .form-group
+          = ff.label "Date:"
+          = ff.date_field :madedate, class: 'form-control'
+        .form-group
+          = ff.label "Amount:"
+          = ff.text_field :amount, class: 'form-control'
+        .form-group
+          = ff.label "Description:"
+          = ff.text_field :description, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label "Contractor name:"
+        = f.text_field :name, class: 'form-control'
+      .form-group
+        = f.label "Address:"
+        = f.text_field :address, class: 'form-control'
+      .form-group
+        = f.label "NIP:"
+        = f.text_field :nip, class: 'form-control'
+  .row
+    .col-md-12
+      .form-group
+      = f.submit 'Save', class: 'btn btn-info btn-block'

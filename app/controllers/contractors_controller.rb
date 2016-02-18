@@ -3,6 +3,7 @@ class ContractorsController < ApplicationController
   expose(:contractor, attributes: :contractor_params)
   expose(:contractors)
 
+
   def index
   end
 
@@ -30,7 +31,7 @@ class ContractorsController < ApplicationController
 
   private
     def contractor_params
-      params.require(:contractor).permit(:name, :address, :nip)
+      params.require(:contractor).permit(:name, :address, :nip, evidences_attributes: [:number, :madedate, :amount, :description, :contractor_id])
     end
 
 end
