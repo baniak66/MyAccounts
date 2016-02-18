@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'contractors#index'
+  root 'evidences#index'
 
   resources :contractors
+  resources :evidences
+  resources :accounts
 
 
 end

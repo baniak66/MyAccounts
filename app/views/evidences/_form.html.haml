@@ -1,0 +1,31 @@
+%br
+= form_for (evidence) do |f|
+  - if evidence.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(evidence.errors.count, "error")} prohibited this evidence from being saved:"
+      %ul
+        - evidence.errors.full_messages.each do |msg|
+          %li= msg
+
+  .row
+    .col-md-6
+      .form-group
+        = f.label "Number:"
+        = f.text_field :number, class: 'form-control'
+      .form-group
+        = f.label "Date:"
+        = f.date_field :madedate, class: 'form-control'
+      .form-group
+        = f.label "Amount:"
+        = f.text_field :amount, class: 'form-control'
+      .form-group
+        = f.label "Description:"
+        = f.text_field :description, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label "Choose contractor:"
+        = f.collection_select :contractor_id, Contractor.all, :id, :full_name, {}, {class: 'form-control'}
+  .row
+    .col-md-12
+      .form-group
+        = f.submit 'Save', class: 'btn btn-info btn-block'
