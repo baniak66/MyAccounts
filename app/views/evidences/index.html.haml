@@ -22,9 +22,10 @@
     %th Amount
     %th Contractor
     %th Description
-  -evidences.each do |evidence|
+  -evidences.each_with_index do |evidence, i|
+    -index = i+1
     %tr
-      %td
+      %td= index
       %td= evidence.number
       %td= evidence.madedate
       %td= evidence.amount
