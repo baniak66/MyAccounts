@@ -3,6 +3,7 @@ class EvidencesController < ApplicationController
   expose(:evidence, attributes: :evidence_params)
   expose(:evidences)
   expose(:contractor)
+  expose(:decree) {Decree.new}
 
   def show
   end

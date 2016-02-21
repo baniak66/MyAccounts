@@ -22,6 +22,7 @@
     %th Amount
     %th Contractor
     %th Description
+    %th
   -evidences.each_with_index do |evidence, i|
     -index = i+1
     %tr
@@ -31,3 +32,4 @@
       %td= evidence.amount
       %td= evidence.contractor.name
       %td= evidence.description
+      %td= link_to "Show", evidence, class: "btn btn-xs btn-default"

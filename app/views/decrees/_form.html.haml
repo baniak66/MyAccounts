@@ -1,0 +1,23 @@
+= form_for ([evidence, decree]) do |f|
+  - if decree.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(decree.errors.count, "error")} prohibited this decree from being saved:"
+      %ul
+        - decree.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label :amount
+    = f.text_field :amount, class: 'form-control'
+  .form-group
+    = f.label :account
+    = f.collection_select :account_id, Account.all, :id, :full_name, {}, {class: 'form-control'}
+  .form-group
+    = f.label :decreetype
+    %br
+    = radio_button_tag(:decreetype, "DT")
+    = label_tag(:type_dt, "DT")
+    = radio_button_tag(:decreetype, "CT")
+    = label_tag(:type_ct, "CT")
+
+  = f.submit 'Save', class: 'btn btn-default'
