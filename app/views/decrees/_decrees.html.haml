@@ -1,0 +1,20 @@
+%h3 Decrees:
+%table.text-center.table
+  %tr
+    %th.text-center DT
+    %th.text-center Amount
+    %th.text-center CT
+  -evidence.decrees.each do |decree|
+    %tr
+      -if decree.decreetype == "DT"
+        %td= decree.account.number
+        %td= decree.amount
+        %td
+      -else
+        %td
+        %td= decree.amount
+        %td= decree.account.number
+  %tr
+    %th.text-center #{evidence.decrees.dt.sum(:amount)}
+    %th.text-center SUM
+    %th.text-center #{evidence.decrees.ct.sum(:amount)}

@@ -11,9 +11,11 @@
     %th Date
     %th Amount
     %th Description
+    %th
   -contractor.evidences.each do |evidence|
     %tr
       %td= evidence.number
       %td= evidence.madedate
       %td= evidence.amount
       %td= evidence.description
+      %td= link_to "Details", evidence, class: "btn btn-xs btn-default"

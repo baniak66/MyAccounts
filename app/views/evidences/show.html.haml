@@ -1,28 +1,14 @@
 .row
-  .col-md-5
+  .col-md-3
     %h3 Evidence details:
-    %p Name: #{evidence.number}
+    %p Number: #{evidence.number}
     %p Address: #{evidence.madedate}
-    %p NIP: #{evidence.amount}
-    %p NIP: #{evidence.description}
-    %p NIP: #{evidence.contractor.name}
+    %p Amount: #{evidence.amount}
+    %p Description: #{evidence.description}
+    %p Contractor: #{evidence.contractor.name}
     %p Added: #{evidence.created_at.strftime("%F")}
-    %h3 Add decree:
-    =render 'decrees/form'
-  .col-md-6.col-md-offset-1
-    %h3 Decrees:
-    %table.text-center.table
-      %tr
-        %th.text-center DT
-        %th.text-center Amount
-        %th.text-center CT
-      -evidence.decrees.each do |decree|
-        %tr
-          -if decree.decreetype == "DT"
-            %td= decree.account.number
-            %td= decree.amount
-            %td
-          -else
-            %td
-            %td= decree.amount
-            %td= decree.account.number
+  .col-md-5.col-md-offset-2
+    .decree-table
+      =render 'decrees/decrees'
+    .decree-from
+      =render 'decrees/form'

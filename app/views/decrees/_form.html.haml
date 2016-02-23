@@ -1,4 +1,4 @@
-= form_for ([evidence, decree]) do |f|
+= form_for ([evidence, decree]), remote: true, html: { class: "form-inline" } do |f|
   - if decree.errors.any?
     #error_explanation
       %h2= "#{pluralize(decree.errors.count, "error")} prohibited this decree from being saved:"
@@ -7,14 +7,10 @@
           %li= msg
 
   .form-group
-    = f.label :amount
-    = f.text_field :amount, class: 'form-control'
+    = f.text_field :amount, placeholder: "Amount", class: 'form-control'
   .form-group
-    = f.label :account
     = f.collection_select :account_id, Account.all, :id, :full_name, {}, {class: 'form-control'}
   .form-group
-    = f.label :decreetype
-    %br
     = radio_button_tag(:decreetype, "DT")
     = label_tag(:type_dt, "DT")
     = radio_button_tag(:decreetype, "CT")

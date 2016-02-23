@@ -6,10 +6,13 @@ class DecreesController < ApplicationController
   def create
     decree.evidence_id = params[:evidence_id]
     decree.decreetype = params[:decreetype]
-    if decree.save
-      redirect_to evidence, notice: 'Decree was successfully created.'
-    else
-      render action: 'show'
+    respond_to do |format|
+      if decree.save
+        format.html {redirect_to evidence, notice: 'Decree was successfully created.'}
+        format.js {}
+      else
+        render action: 'show'
+      end
     end
   end
 
