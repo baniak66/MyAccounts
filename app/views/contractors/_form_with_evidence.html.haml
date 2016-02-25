@@ -1,8 +1,8 @@
 %br
-= form_for (contractor) do |f|
+= form_for contractor, url: create_evidence_path do |f|
   - if contractor.errors.any?
     #error_explanation
-      %h2= "#{pluralize(contractor.errors.count, "error")} prohibited this contractor from being saved:"
+      %h2= "#{pluralize(contractor.errors.count, "error")} prohibited this contractor and evidence from being saved:"
       %ul
         - contractor.errors.full_messages.each do |msg|
           %li= msg

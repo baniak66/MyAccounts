@@ -2,7 +2,8 @@ class ContractorsController < ApplicationController
 
   expose(:contractor, attributes: :contractor_params)
   expose(:contractors)
-
+  expose(:evidences)
+  expose(:evidence)
 
   def index
   end
@@ -15,13 +16,17 @@ class ContractorsController < ApplicationController
 
   def create
     if contractor.save
-      if contractor.evidences.count == 1
-        redirect_to evidence_path(contractor.evidences.first), notice: 'Evidence was successfully created.'
-      else
-        redirect_to contractors_path, notice: 'Contractor was successfully created.'
-      end
+      redirect_to contractors_path, notice: 'Contractor was successfully created.'
     else
       render action: 'new'
+    end
+  end
+
+  def create_evidence
+    if contractor.save
+      redirect_to evidence_path(contractor.evidences.first), notice: 'Evidence was successfully created.'
+    else
+      render 'evidences/index'
     end
   end
 
