@@ -11,11 +11,19 @@ class DecreesController < ApplicationController
         format.html {redirect_to evidence, notice: 'Decree was successfully created.'}
         format.js {}
       else
-        render action: 'show'
+        format.html {render 'evidences/show'}
+        format.js {}
       end
     end
   end
 
+  def destroy
+    if decree.destroy
+      respond_to do |format|
+        format.js {}
+      end
+    end
+  end
 
   private
 

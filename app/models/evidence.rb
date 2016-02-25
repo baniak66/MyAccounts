@@ -3,4 +3,13 @@ class Evidence < ActiveRecord::Base
   has_many :decrees
 
   validates :number, :madedate, :amount, :description, presence: true
+
+  def check_balance
+    if (self.decrees.dt.sum(:amount) - self.decrees.ct.sum(:amount)) == 0
+      true
+    else
+      false
+    end
+  end
+
 end
