@@ -1,1 +1,21 @@
-index.html.haml
+%h3 Accounts:
+
+%table.table
+  %tr
+    %th Number
+    %th Name
+    %th Type
+    %th Number of decrees
+  -accounts.each do |account|
+    %tr
+      %td= account.number
+      %td= account.name
+      %td= account.accounttype
+      %td= account.decrees.count
+    -account.decrees.each do |decree|
+      %tr
+        %td= decree.created_at
+        %td= decree.amount
+        %td= decree.decreetype
+        %td= decree.decreetype
+
