@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213200428) do
+ActiveRecord::Schema.define(version: 20160226222838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,9 @@ ActiveRecord::Schema.define(version: 20160213200428) do
     t.float    "amount"
     t.string   "description"
     t.integer  "contractor_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "accept",        default: false
   end
 
   add_index "evidences", ["contractor_id"], name: "index_evidences_on_contractor_id", using: :btree
