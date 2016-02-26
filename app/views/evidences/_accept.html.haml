@@ -1,6 +1,6 @@
 -unless evidence.decrees.empty?
   -if evidence.check_balance
     %h4 Decree OK!
-    = link_to "Accept", "/", class: "btn btn-primary btn-block"
+    = link_to "Accept", accept_path(evidence.id), method: :patch, class: "btn btn-primary btn-block"
   -else
     %h4 Sums of Dt & Ct aren't equal!

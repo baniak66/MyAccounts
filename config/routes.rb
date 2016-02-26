@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :evidences do
     resources :decrees
   end
+  patch  '/evidences/:id/accept', to: 'evidences#accept', as: 'accept'
 
   resources :accounts
 
