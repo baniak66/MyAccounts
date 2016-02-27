@@ -6,16 +6,13 @@
     %th Name
     %th Type
     %th Number of decrees
+    %th
   -accounts.each do |account|
     %tr
       %td= account.number
       %td= account.name
       %td= account.accounttype
       %td= account.decrees.count
-    -account.decrees.each do |decree|
-      %tr
-        %td= decree.created_at
-        %td= decree.amount
-        %td= decree.decreetype
-        %td= decree.decreetype
+      %td= link_to "Show entries", account, class: "btn btn-default btn-xs"
+
 

@@ -1,0 +1,23 @@
+%h3= account.full_name
+
+%table.table
+  %tr
+    %th Date
+    %th Number
+    %th Descriprion
+    %th DT
+    %th CT
+  -account.decrees.each do |decree|
+    %tr
+      -if decree.decreetype == "DT"
+        %td= decree.evidence.madedate
+        %td= decree.evidence.number
+        %td= decree.evidence.description
+        %td= decree.amount
+        %td
+      -else
+        %td= decree.evidence.madedate
+        %td= decree.evidence.number
+        %td= decree.evidence.description
+        %td
+        %td= decree.amount
