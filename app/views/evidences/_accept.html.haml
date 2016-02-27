@@ -1,6 +1,11 @@
--unless evidence.decrees.empty?
-  -if evidence.check_balance
-    %h4 Decree OK!
-    = link_to "Accept", accept_path(evidence.id), method: :patch, class: "btn btn-primary btn-block"
-  -else
-    %h4 Sums of Dt & Ct aren't equal!
+-if evidence.accept?
+  %h4 Evidence accepted. You can't check your decrees on accounts:
+  -evidence.decrees.each do |decree|
+    %p= link_to decree.account.full_name, account_path(decree.account.id), class: 'btn btn-default btn-block'
+-else
+  -unless evidence.decrees.empty?
+    -if evidence.check_balance
+      %h4 Decree OK!
+      = link_to "Accept", accept_path(evidence.id), method: :patch, class: "btn btn-primary btn-block"
+    -else
+      %h4 Sums of Dt & Ct aren't equal!
