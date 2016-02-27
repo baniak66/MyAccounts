@@ -1,7 +1,9 @@
 -if evidence.accept?
   %h4 Evidence accepted. You can't check your decrees on accounts:
-  -evidence.decrees.each do |decree|
-    %p= link_to decree.account.full_name, account_path(decree.account.id), class: 'btn btn-default btn-block'
+  -accountlist = []
+  -evidence.decrees.each { |d| accountlist << d.account }
+  -accountlist.uniq.each do |acc|
+    %p= link_to acc.full_name, account_path(acc.id), class: 'btn btn-default btn-block'
 -else
   -unless evidence.decrees.empty?
     -if evidence.check_balance
