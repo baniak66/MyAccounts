@@ -11,12 +11,12 @@
         %td= decree.account.number
         %td= decree.amount
         %td
-        %td= link_to "X", evidence_decree_path(evidence.id, decree.id), remote: true, method: :delete
+        %td= link_to "X", evidence_decree_path(evidence.id, decree.id), remote: true, method: :delete unless evidence.accept?
       -else
         %td
         %td= decree.amount
         %td= decree.account.number
-        %td= link_to "X", evidence_decree_path(evidence.id, decree.id), remote:true, method: :delete
+        %td= link_to "X", evidence_decree_path(evidence.id, decree.id), remote:true, method: :delete unless evidence.accept?
   %tr
     %th.text-center #{evidence.decrees.dt.sum(:amount)}
     %th.text-center SUM
