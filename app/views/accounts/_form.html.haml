@@ -1,0 +1,19 @@
+=form_for account, :html => {class: 'form-inline'} do |f|
+  - if account.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(account.errors.count, "error")} prohibited this account from being saved:"
+      %ul
+        - account.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.text_field :number, placeholder: 'Number', class: 'form-control'
+  .form-group
+    = f.text_field :name, placeholder: 'Name', class: 'form-control'
+  .form-group
+    = radio_button_tag(:accounttype, "balance")
+    = label_tag(:type_bal, "balance")
+    = radio_button_tag(:accounttype, "income")
+    = label_tag(:type_inc, "income statement")
+
+  = f.submit 'Save', class: 'btn btn-info'

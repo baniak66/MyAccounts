@@ -13,10 +13,11 @@ class AccountsController < ApplicationController
   end
 
   def create
+    account.accounttype = params[:accounttype]
     if account.save
       redirect_to accounts_path, notice: 'Account was successfully created.'
     else
-      render action: 'new'
+      render action: 'index'
     end
   end
 
