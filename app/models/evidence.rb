@@ -12,4 +12,12 @@ class Evidence < ActiveRecord::Base
     end
   end
 
+  def status
+    if self.accept?
+      "Accepted"
+    else
+      "Not accepted"
+    end
+  end
+
 end
