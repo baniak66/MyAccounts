@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   patch  '/evidences/:id/accept', to: 'evidences#accept', as: 'accept'
 
   resources :accounts
+  get 'trial_balance', to: 'accounts#trial_balance', as: 'trial_balance'
 
 
 end

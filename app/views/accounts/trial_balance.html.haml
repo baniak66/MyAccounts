@@ -1,0 +1,33 @@
+%h3 Trial Balance:
+
+%table.table
+  %tr
+    %th Account
+    %th{colspan: 2}
+      Opening balances
+    %th{colspan: 2}
+      Adjusting entries
+    %th{colspan: 2}
+      Adjusted balances
+  %tr
+    %th
+    %th DT
+    %th CT
+    %th DT
+    %th CT
+    %th DT
+    %th CT
+  -accounts.each do |account|
+    %tr
+      %td= account.full_name
+      %td= account.dt_opening
+      %td= account.ct_opening
+      %td= account.sum_entries('DT')
+      %td= account.sum_entries('CT')
+      %td= account.show_balance('DT')
+      %td= account.show_balance('CT')
+
+
+
+
+

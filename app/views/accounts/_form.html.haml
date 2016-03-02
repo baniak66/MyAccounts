@@ -11,8 +11,12 @@
   .form-group
     = f.text_field :name, placeholder: 'Name', class: 'form-control'
   .form-group
+    = f.text_field :dt_opening, placeholder: 'DT opening', class: 'form-control'
+  .form-group
+    = f.text_field :ct_opening, placeholder: 'CT opening', class: 'form-control'
+  .form-group
     = radio_button_tag(:accounttype, "balance")
-    = label_tag(:type_bal, "balance")
+    = label_tag(:type_bal, "balance sheet")
     = radio_button_tag(:accounttype, "income")
     = label_tag(:type_inc, "income statement")
 

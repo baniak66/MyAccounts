@@ -29,8 +29,19 @@ class AccountsController < ApplicationController
     end
   end
 
+  def destroy
+    if account.destroy
+      redirect_to accounts_path, notice: 'Account was successfully deleted.'
+    else
+      redirect_to accounts_path, notice: 'Something went wrong.'
+    end
+  end
+
+  def trial_balance
+  end
+
   private
     def account_params
-      params.require(:account).permit(:number, :accounttype, :name)
+      params.require(:account).permit(:number, :accounttype, :name, :dt_opening, :ct_opening)
     end
 end

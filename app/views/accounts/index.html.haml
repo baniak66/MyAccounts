@@ -11,12 +11,13 @@
     %th Type
     %th Number of decrees
     %th
-  -accounts.each do |account|
+  -accounts.order(:number).each do |account|
     %tr
       %td= account.number
       %td= account.name
       %td= account.accounttype
       %td= account.decrees.count
-      %td= link_to "Show entries", account, class: "btn btn-default btn-xs"
-
+      %td
+        = link_to "Show entries", account, class: "btn btn-default btn-xs"
+        = link_to "Delete", account_path(account.id), method: :delete, class: "btn btn-xs btn-danger"
 
