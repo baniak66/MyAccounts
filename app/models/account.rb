@@ -35,8 +35,18 @@ class Account < ActiveRecord::Base
     end
   end
 
-  def sum_dt
+  def entries_summary(type)
+    entries = []
+    accounts = Account.all
+    accounts.each { |account| entries << account.sum_entries(type) }
+    entries.sum
+  end
 
+  def balances_summary(type)
+    balances = []
+    accounts = Account.all
+    accounts.each { |account| balances << account.show_balance(type) }
+    balances.sum
   end
 
 end

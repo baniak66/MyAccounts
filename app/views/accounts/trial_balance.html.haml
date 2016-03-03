@@ -26,6 +26,14 @@
       %td= account.sum_entries('CT')
       %td= account.show_balance('DT')
       %td= account.show_balance('CT')
+  %tr
+    %td Sum
+    %td= accounts.sum(:dt_opening)
+    %td= accounts.sum(:ct_opening)
+    %td= account.entries_summary('DT')
+    %td= account.entries_summary('CT')
+    %td= account.balances_summary('DT')
+    %td= account.balances_summary('CT')
 
 
 
