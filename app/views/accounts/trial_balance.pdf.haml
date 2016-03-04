@@ -27,17 +27,10 @@
       %td= account.show_balance('DT')
       %td= account.show_balance('CT')
   %tr
-    %th Summary
-    %th= accounts.sum(:dt_opening)
-    %th= accounts.sum(:ct_opening)
-    %th= account.entries_summary('DT')
-    %th= account.entries_summary('CT')
-    %th= account.balances_summary('DT')
-    %th= account.balances_summary('CT')
-
-=link_to "Export to pdf", trial_balance_path(format: :pdf), class: "btn btn-info"
-
-
-
-
-
+    %td Summary
+    %td= accounts.sum(:dt_opening)
+    %td= accounts.sum(:ct_opening)
+    %td= account.entries_summary('DT')
+    %td= account.entries_summary('CT')
+    %td= account.balances_summary('DT')
+    %td= account.balances_summary('CT')

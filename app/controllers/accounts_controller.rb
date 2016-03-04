@@ -38,6 +38,12 @@ class AccountsController < ApplicationController
   end
 
   def trial_balance
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Trial Balance (generated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")})"
+      end
+    end
   end
 
   private
