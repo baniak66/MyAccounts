@@ -1,4 +1,5 @@
-%h3 Trial Balance:
+=wicked_pdf_stylesheet_link_tag 'application'
+%h3 Trial Balance
 
 %table.table
   %tr
@@ -34,3 +35,4 @@
     %td= account.entries_summary('CT')
     %td= account.balances_summary('DT')
     %td= account.balances_summary('CT')
+%h6 generated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}

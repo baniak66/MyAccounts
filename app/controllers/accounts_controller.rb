@@ -41,7 +41,8 @@ class AccountsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Trial Balance (generated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")})"
+        render pdf: "Trial Balance (generated #{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")})",
+          orientation: 'Landscape'
       end
     end
   end
