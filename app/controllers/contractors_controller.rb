@@ -5,6 +5,8 @@ class ContractorsController < ApplicationController
   expose(:evidences)
   expose(:evidence)
 
+  before_action :check_evidences, only: :destroy
+
   def index
   end
 
@@ -38,11 +40,22 @@ class ContractorsController < ApplicationController
     end
   end
 
+  def destroy
+    if contractor.destroy
+      redirect_to contractors_path, notice: 'Contractor deleted.'
+    end
+  end
+
   private
     def contractor_params
       params.require(:contractor).permit(:name, :address, :nip,
         evidences_attributes: [:number, :madedate, :amount, :description, :contractor_id])
     end
 
+    def check_evidences
+      unless contractor.evidences.empty?
+        redirect_to contractors_path, notice: 'Contractor has attached evidences, so You can not delete it.'
+      end
+    end
 end
 
