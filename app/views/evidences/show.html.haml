@@ -1,16 +1,23 @@
 .row
-  .col-md-3
-    %h3 Evidence details:
-    %p Number: #{evidence.number}
-    %p Address: #{evidence.madedate}
-    %p Amount: #{evidence.amount}
-    %p Description: #{evidence.description}
-    %p Contractor: #{evidence.contractor.name}
-    %p Added: #{evidence.created_at.strftime("%F")}
-  .col-md-5.col-md-offset-2
+  .col-md-5
+    .panel.panel-default
+      .panel-heading
+        %h3 Evidence details:
+      .panel-body
+        %p Number: #{evidence.number}
+        %p Address: #{evidence.madedate}
+        %p Amount: #{evidence.amount}
+        %p Description: #{evidence.description}
+        %p Contractor: #{evidence.contractor.name}
+        %p Added: #{evidence.created_at.strftime("%F")}
+  .col-md-6.col-md-offset-1
     .decree-table
       =render 'decrees/decrees'
-    .decree-from
-      =render 'decrees/form'
+    -unless evidence.accept?
+      .decree-from
+        =render 'decrees/form'
     .accept.text-center
       =render 'accept'
+.row
+  .col-md-3
+    =link_to "Back", evidences_path, class: "btn btn-default"
