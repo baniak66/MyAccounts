@@ -16,6 +16,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
   gem 'byebug'
 end
 
