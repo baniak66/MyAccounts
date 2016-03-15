@@ -1,6 +1,6 @@
 rvm:
   - 2.2.1
 before_script:
-  - psql -c 'create database MyAccounts_test;' -U postgres
+  - psql -c 'create database MyAccounts_test;' -U MyAccounts
 addons:
   postgresql: '9.3'
