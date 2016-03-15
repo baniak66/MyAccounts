@@ -34,4 +34,4 @@ development:
 
 test: &test
   <<: *connection
-  database: MyAccounts_test
+  database: my_accounts_test
