@@ -4,5 +4,8 @@ before_script:
   - psql -c 'create database my_accounts_test;' -U postgres
 addons:
   postgresql: '9.3'
+  code_climate:
+    repo_token: ad539349ae0546d709a842934f1ecd4a0a7acccf3172457aae38c758d8a27fcb
 notifications:
   email: false
+
