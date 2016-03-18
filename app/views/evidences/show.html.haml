@@ -5,11 +5,16 @@
         %h3 Evidence details:
       .panel-body
         %p Number: #{evidence.number}
-        %p Address: #{evidence.madedate}
+        %p Date: #{evidence.madedate}
         %p Amount: #{evidence.amount}
         %p Description: #{evidence.description}
         %p Contractor: #{evidence.contractor.name}
         %p Added: #{evidence.created_at.strftime("%F")}
+      .panel-footer
+        =link_to "Edit", edit_evidence_path(evidence, contractor_id: evidence.contractor_id), class: 'btn btn-default'
+        =link_to "Delete", evidence_path(evidence), method: :delete, class: 'btn btn-danger'
+
+
   .col-md-6.col-md-offset-1
     .decree-table
       =render 'decrees/decrees'
