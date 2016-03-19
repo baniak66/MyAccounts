@@ -1,5 +1,5 @@
 -if evidence.accept?
-  %h4 Evidence accepted. You can't check your decrees on accounts:
+  %h4 Evidence accepted. You can check your decrees on accounts:
   -accountlist = []
   -evidence.decrees.each { |d| accountlist << d.account }
   -accountlist.uniq.each do |acc|
